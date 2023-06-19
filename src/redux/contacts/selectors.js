@@ -1,0 +1,1 @@
+export const selectListItems = state => state.contacts.items.filter(({name}) => name.toLowerCase().includes(state.filter));
