@@ -9,7 +9,6 @@ export default function RegisterForm() {
     const name = event.target.elements.name.value;
     const email = event.target.elements.email.value;
     const password = event.target.elements.password.value;
-    console.log({ name, email, password });
     dispatch(register({ name, email, password }));
     event.target.reset();
   };

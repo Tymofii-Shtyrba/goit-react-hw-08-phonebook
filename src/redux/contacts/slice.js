@@ -22,7 +22,6 @@ const contactsSlice = createSlice({
       state.isLoading = true;
     },
     [addContact.fulfilled](state, action) {
-      console.log(action);
       state.items.push(action.payload)
       state.isLoading = false;
     },

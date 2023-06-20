@@ -17,13 +17,13 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(refresh());
+    navigate('/login', { replace: true });
+    // eslint-disable-next-line
   }, [dispatch]);
-
   useEffect(() => {
-    if (!isRefreshed) return;
-    isLoggedin
-      ? navigate('/contacts', { replace: true })
-      : navigate('/login', { replace: true });
+    if (isRefreshed && isLoggedin) {
+      navigate('/contacts', { replace: true });
+    }
   }, [isRefreshed, isLoggedin, navigate]);
 
   return (

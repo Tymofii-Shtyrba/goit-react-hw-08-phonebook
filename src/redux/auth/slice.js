@@ -20,7 +20,6 @@ const authSlice = createSlice({
       state.isLoading = true;
     },
     [register.fulfilled](state, action) {
-      console.log(action);
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
@@ -34,7 +33,6 @@ const authSlice = createSlice({
       state.isLoading = true;
     },
     [login.fulfilled](state, action) {
-      console.log(action);
       state.user = action.payload.user;
       state.token = action.payload.token;
       state.isLoggedIn = true;
