@@ -16,7 +16,7 @@ export default function UserMenu() {
     <StyledUserMenu>
       <p>{userEmail}</p>
       <button onClick={onClick} type="button">
-        Log out
+        Log out 🔒
       </button>
     </StyledUserMenu>
   );

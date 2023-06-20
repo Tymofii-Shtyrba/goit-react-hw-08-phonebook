@@ -15,10 +15,10 @@ export default function HomepageMenu() {
       <h2>sign in or register</h2>
       <div>
         <button type="button" onClick={signIn}>
-          Sign in
+          Sign in 🔑
         </button>
         <button type="button" onClick={register}>
-          Register
+          Register ✍️
         </button>
       </div>
     </StyledHomepageMenu>
