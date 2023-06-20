@@ -5,14 +5,14 @@ import Register from 'pages/Register';
 import Contacts from 'pages/Contacts';
 import { useEffect } from 'react';
 import { refresh } from 'redux/auth/operations';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { selectLoginStatus } from 'redux/auth/selectors';
-import { useSelector } from 'react-redux';
+import { selectLoginStatus, selectRefreshStatus } from 'redux/auth/selectors';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector(selectLoginStatus);
+  const isRefreshed = useSelector(selectRefreshStatus);
+  const isLoggedin = useSelector(selectLoginStatus);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,14 +20,16 @@ export const App = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (!isLoggedIn) return;
-    navigate('/contacts', { replace: true });
-  }, [isLoggedIn, navigate]);
+    if (!isRefreshed) return;
+    isLoggedin
+      ? navigate('/contacts', { replace: true })
+      : navigate('/login', { replace: true });
+  }, [isRefreshed, isLoggedin]);
 
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contacts" element={<Contacts />} />
       </Route>
