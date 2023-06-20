@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contacts/operations';
+import { StyledContactForm } from './ContactForm.styled';
 
 export default function ContactForm() {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={onSubmin}>
+    <StyledContactForm onSubmit={onSubmin}>
       <label>
         Name
         <input type="text" name="name" required />
@@ -23,6 +24,6 @@ export default function ContactForm() {
         <input type="text" name="number" required />
       </label>
       <button type="submit">Add contact</button>
-    </form>
+    </StyledContactForm>
   );
 }

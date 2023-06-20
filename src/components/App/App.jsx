@@ -5,30 +5,21 @@ import Register from 'pages/Register';
 import Contacts from 'pages/Contacts';
 import { useEffect } from 'react';
 import { refresh } from 'redux/auth/operations';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { selectLoginStatus, selectRefreshStatus } from 'redux/auth/selectors';
+import { useDispatch } from 'react-redux';
+
+import Home from 'pages/Home';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isRefreshed = useSelector(selectRefreshStatus);
-  const isLoggedin = useSelector(selectLoginStatus);
-  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(refresh());
-    navigate('/login', { replace: true });
-    // eslint-disable-next-line
-  }, [dispatch]);
-  useEffect(() => {
-    if (isRefreshed && isLoggedin) {
-      navigate('/contacts', { replace: true });
-    }
-  }, [isRefreshed, isLoggedin, navigate]);
+  });
 
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/contacts" element={<Contacts />} />

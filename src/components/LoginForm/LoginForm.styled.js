@@ -1,15 +1,20 @@
 import styled from "@emotion/styled";
 
-
-export const StyledContactForm = styled.form`
+export const StyledForm = styled.form`
 display: flex;
 flex-direction: column;
-align-items: center;
 gap: 10px;
+max-width: 250px;
+padding: 30px 10px;
+margin: 100px auto 0;
+background-color: white;
+
+h2 {
+  font-size: 20px;
+}
 
 label {
   display: flex;
-  width: 100%;
   justify-content: space-between;
 }
 `

@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/filter/slice';
+import { StyledFilter } from './Filter.styled';
 
 export default function Filter() {
   const dispatch = useDispatch();
@@ -10,9 +11,9 @@ export default function Filter() {
   };
 
   return (
-    <label>
+    <StyledFilter>
       Find by name
       <input type="text" onChange={onChange} />
-    </label>
+    </StyledFilter>
   );
 }

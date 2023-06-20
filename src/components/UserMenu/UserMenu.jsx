@@ -2,24 +2,22 @@ import { useDispatch } from 'react-redux';
 import { logout } from 'redux/auth/operations';
 import { useSelector } from 'react-redux';
 import { selectUserEmail } from 'redux/auth/selectors';
-import { useNavigate } from 'react-router-dom';
+import { StyledUserMenu } from './UserMenu.styled';
 
 export default function UserMenu() {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const userEmail = useSelector(selectUserEmail);
 
   const onClick = () => {
-    navigate('/login', { replace: true });
     dispatch(logout());
   };
 
   return (
-    <div>
+    <StyledUserMenu>
       <p>{userEmail}</p>
       <button onClick={onClick} type="button">
-        Logout
+        Log out
       </button>
-    </div>
+    </StyledUserMenu>
   );
 }

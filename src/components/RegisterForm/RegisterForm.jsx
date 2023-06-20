@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
+import { StyledRegisterForm } from './RegisterForm.styled';
 
 export default function RegisterForm() {
   const dispatch = useDispatch();
@@ -14,7 +15,8 @@ export default function RegisterForm() {
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <StyledRegisterForm onSubmit={onSubmit}>
+      <h2>Enter your details to register</h2>
       <label>
         Name
         <input type="text" required id="name" />
@@ -28,6 +30,6 @@ export default function RegisterForm() {
         <input type="text" required id="password" />
       </label>
       <button type="submit">Create an account</button>
-    </form>
+    </StyledRegisterForm>
   );
 }

@@ -1,9 +1,8 @@
 import styled from "@emotion/styled";
 
 
-
-export const StyledList = styled.ul`
+export const StyledUserMenu = styled.div`
 display: flex;
-flex-direction: column;
+align-items: center;
 gap: 10px;
 `
