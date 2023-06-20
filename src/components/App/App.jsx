@@ -24,7 +24,7 @@ export const App = () => {
     isLoggedin
       ? navigate('/contacts', { replace: true })
       : navigate('/login', { replace: true });
-  }, [isRefreshed, isLoggedin]);
+  }, [isRefreshed, isLoggedin, navigate]);
 
   return (
     <Routes>
